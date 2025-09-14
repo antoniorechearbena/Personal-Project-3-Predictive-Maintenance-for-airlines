@@ -19,4 +19,16 @@ train_FD001_df = pd.read_csv(
 #Group by engine_unit, find the max cycle for each engine unit, and substract the current cycle from the max cycle to get RUL.
 train_FD001_df["RUL"] = train_FD001_df.groupby("engine_unit")["cycle"].transform(max) - train_FD001_df["cycle"]
 
+
+#Drop the unuseful sensor measurements: sensor_measurement 1, 5, 6, 10, 16, 18, 19.
+train_FD001_df = train_FD001_df.drop(columns = [
+    "sensor_measurement 1", 
+    "sensor_measurement 5", 
+    "sensor_measurement 6", 
+    "sensor_measurement 10", 
+    "sensor_measurement 16", 
+    "sensor_measurement 18", 
+    "sensor_measurement 19"
+])
+
 print(train_FD001_df)

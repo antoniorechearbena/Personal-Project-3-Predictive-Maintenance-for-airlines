@@ -23,14 +23,14 @@ print(engine_1_df)
 
 #Plot the sensor measurements for engine unit 1 across all cycles.
 plt.figure(figsize=(15,10))
-plt.plot(engine_1_df["cycle"], engine_1_df["sensor_measurement 9"], label = "Sensor Measurement 9")
+plt.plot(engine_1_df["cycle"], engine_1_df["sensor_measurement 14"], label = "Sensor Measurement 14")
 plt.xlabel("Cycle")
-plt.ylabel("Sensor Measurement 9")
-plt.title("Sensor Measurement 9 across Cycles for Engine Unit 1")
+plt.ylabel("Sensor Measurement 14")
+plt.title("Sensor Measurement 14 across Cycles for Engine Unit 1")
 plt.show()
 
 #Choose 3 random engine units to compare the sensor measurements across cycles.
-engine_units = [24, 67, 99]
+engine_units = [13, 54, 87]
 
 #Plot the sensor measurements for the chosen engine units across all cycles.
 plt.figure(figsize=(15,10))
@@ -38,6 +38,6 @@ for unit in engine_units:
     engine_1_df = train_FD001_df[train_FD001_df["engine_unit"] == unit]
     plt.plot(engine_1_df["cycle"], engine_1_df["sensor_measurement 9"], label = "Sensor Measurement 9")
     plt.xlabel("Cycle")
-    plt.ylabel("Sensor Measurement 9")
-    plt.title("Sensor Measurement 9 across Cycles for Engine Units 24, 67, 99")
+    plt.ylabel("Sensor Measurement 14")
+    plt.title("Sensor Measurement 14 across Cycles for Engine Units 13, 54, 87")
     plt.show()
