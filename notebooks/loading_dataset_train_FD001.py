@@ -17,7 +17,7 @@ train_FD001_df = pd.read_csv(
 
 #Finding RUL (Remaining Useful Life) for each engine unit in the training dataset.
 #Group by engine_unit, find the max cycle for each engine unit, and substract the current cycle from the max cycle to get RUL.
-train_FD001_df["RUL"] = train_FD001_df.groupby("engine_unit")["cycle"].transform(max) - train_FD001_df["cycle"]
+train_FD001_df["RUL"] = train_FD001_df.groupby("engine_unit")["cycle"].transform("max") - train_FD001_df["cycle"]
 
 
 #Drop the unuseful sensor measurements: sensor_measurement 1, 5, 6, 10, 16, 18, 19.
@@ -31,4 +31,11 @@ train_FD001_df = train_FD001_df.drop(columns = [
     "sensor_measurement 19"
 ])
 
-print(train_FD001_df)
+
+_df_cache = None
+
+def get_df():
+    global _df_cache
+    if _df_cache is None:
+        _df_cache = train_FD001_df.copy()
+    return _df_cache
