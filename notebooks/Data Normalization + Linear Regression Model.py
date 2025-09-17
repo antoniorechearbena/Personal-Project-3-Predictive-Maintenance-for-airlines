@@ -7,12 +7,13 @@ from loading_dataset_train_FD001 import get_df
 from sklearn.model_selection import train_test_split    
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
+import joblib, json, os 
 
 
 #Import the dataframe from loading_dataset_train_FD001.py.
 normalize_linear_regression_df = get_df()
 
-
+print(normalize_linear_regression_df)
 #Define features X and target Y.
 X = normalize_linear_regression_df.drop(columns = ["engine_unit", "RUL", "cycle", "operational_setting 1", "operational_setting 2", "operational_setting 3"], errors = "ignore")
 Y = normalize_linear_regression_df["RUL"]
@@ -63,3 +64,12 @@ plt.show()
 print(f"Train MAE: {train_mae:.2f}, Test MAE: {test_mae:.2f}")
 print(f"Train RMSE: {train_rmse:.2f}, Test RMSE: {test_rmse:.2f}")
 print(f"Train R^2: {train_r2:.2f}, Test R^2: {test_r2:.2f}")    
+
+os.makedirs("artifacts", exist_ok = True)
+
+joblib.dump(reg, "artifacts/lr_fd001.joblib")
+joblib.dump(scaler, "artifacts/scaler_fd001.joblib")
+
+feature_cols = X_train.columns.tolist()  
+with open("artifacts/feature_cols.json", "w") as f:
+    json.dump(feature_cols, f)
