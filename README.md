@@ -66,16 +66,6 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 
 ---
 
-##  Example Plots
-
-**XGBoost Parity Plot (Official Test)**  
-(Add your screenshot here)
-
-**XGBoost Residuals (Official Test)**  
-(Add your screenshot here)
-
----
-
 ##  Lessons Learned
 
 - Linear models are too simple for this problem.  
