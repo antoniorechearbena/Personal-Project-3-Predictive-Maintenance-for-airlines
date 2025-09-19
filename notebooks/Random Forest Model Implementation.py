@@ -80,7 +80,7 @@ def load_and_prepare_test_fd001(test_path, rul_path, feature_cols, scaler):
 
     #Keep only the last cycle for each engine unit. 
     test_last = (
-        test_df.sort_values(["engine_unit", "cycle"])
+        test_df.sort_values(["engine_unit", "cycle"])   
         .groupby("engine_unit", as_index = False)
         .tail(1)
         .reset_index(drop = True)
