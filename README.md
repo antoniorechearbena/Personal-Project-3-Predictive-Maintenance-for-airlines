@@ -19,12 +19,12 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 ### 1. Linear Regression (Baseline)
 - **What it is:** A simple model that assumes a straight-line relationship between sensors and RUL.  
 - **Why:** Serves as a baseline for comparison.  
-- **Result:** Poor performance (high MAE/RMSE, negative R²).  
+- **Result:** MAE = 25.75, RMSE = 32.12, R² = 0.39.
 
 ### 2. Random Forest
 - **What it is:** An ensemble of decision trees, averaging multiple independent trees.  
 - **Why:** Handles non-linearities and noise better than linear regression.  
-- **Result:** MAE = 23.1, RMSE = 30.3, R² = 0.47.  
+- **Result:** MAE = 23.07, RMSE = 30.31, R² = 0.47.  
 
 ### 3. XGBoost (Gradient Boosting Trees)
 - **What it is:** A boosting method that builds trees sequentially, each one correcting errors from the previous.  
@@ -33,7 +33,7 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
   - Rolling averages of sensor values (short-term trends)  
   - First differences (rate of change)  
   - Normalized cycles (relative engine age)  
-- **Result (best config):** MAE = 19.9, RMSE = 23.9, R² = 0.67.  
+- **Result (best config):** MAE = 18.35, RMSE = 22.08, R² = 0.72.  
 
 ---
 
@@ -41,12 +41,12 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 
 | Model              | MAE ↓  | RMSE ↓ | R² ↑  |
 |--------------------|--------|--------|-------|
-| Linear Regression  | ~50+   | Very high | Negative |
-| Random Forest      | 23.1   | 30.3   | 0.47  |
+| Linear Regression  | 25.75  | 32.12  | 0.39  |
+| Random Forest      | 23.07  | 30.31  | 0.47  |
 | XGBoost (baseline) | 24.4   | 28.5   | 0.53  |
-| XGBoost (tuned)    | 19.9   | 23.9   | 0.67  |
+| XGBoost (tuned)    | 18.35  | 22.08  | 0.72  |
 
- **Key Insight:** XGBoost consistently outperformed Random Forest, especially after feature engineering and tuning.
+ **Key Insight:** XGBoost outperformed Random Forest, especially after feature engineering and tuning.
 
 ---
 
@@ -83,14 +83,6 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 - Feature engineering (rolling stats, cycle normalization) is crucial for extracting degradation signals.  
 - Cross-validation and early stopping prevent overfitting.  
 - Slight variations in results are expected due to stochastic sampling in ensembles, but the overall trend (XGB > RF > Linear) remained consistent.  
-
----
-
-##  Next Steps
-
-- Extend feature engineering with domain-specific health indicators.  
-- Implement **LSTM/GRU deep learning models** to capture sequential dependencies in engine degradation.  
-- Explore model ensembling (XGBoost + RF + neural nets).  
 
 ---
 
