@@ -1,10 +1,10 @@
-# 🚀 Predictive Maintenance on NASA CMAPSS (FD001)
+#  Predictive Maintenance on NASA CMAPSS (FD001)
 
 This project focuses on predicting the **Remaining Useful Life (RUL)** of turbofan engines using the NASA CMAPSS dataset (FD001 subset). Accurate RUL predictions are critical in aviation maintenance planning, helping reduce costs, increase safety, and avoid unexpected failures.  
 
 ---
 
-## 📂 Dataset
+##  Dataset
 
 - **Source:** NASA CMAPSS (FD001)  
 - **Train set:** Engine sensor data until failure  
@@ -14,7 +14,7 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 
 ---
 
-## 🧠 Models Implemented
+## Models Implemented
 
 ### 1. Linear Regression (Baseline)
 - **What it is:** A simple model that assumes a straight-line relationship between sensors and RUL.  
@@ -37,7 +37,7 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 
 ---
 
-## 📊 Results Summary
+##  Results Summary
 
 | Model              | MAE ↓  | RMSE ↓ | R² ↑  |
 |--------------------|--------|--------|-------|
@@ -46,11 +46,11 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 | XGBoost (baseline) | 24.4   | 28.5   | 0.53  |
 | XGBoost (tuned)    | 19.9   | 23.9   | 0.67  |
 
-🔑 **Key Insight:** XGBoost consistently outperformed Random Forest, especially after feature engineering and tuning.
+ **Key Insight:** XGBoost consistently outperformed Random Forest, especially after feature engineering and tuning.
 
 ---
 
-## ⚙️ Project Workflow
+##  Project Workflow
 
 1. **Data Loading:** Preprocessed CMAPSS FD001 into pandas DataFrames.  
 2. **Feature Engineering:** Added rolling means, sensor differences, and cycle normalization.  
@@ -66,7 +66,7 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 
 ---
 
-## 📈 Example Plots
+##  Example Plots
 
 **XGBoost Parity Plot (Official Test)**  
 (Add your screenshot here)
@@ -76,7 +76,7 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 
 ---
 
-## 🔍 Lessons Learned
+##  Lessons Learned
 
 - Linear models are too simple for this problem.  
 - Tree ensembles (RF, XGB) capture non-linear sensor interactions effectively.  
@@ -86,7 +86,7 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 
 ---
 
-## 📌 Next Steps
+##  Next Steps
 
 - Extend feature engineering with domain-specific health indicators.  
 - Implement **LSTM/GRU deep learning models** to capture sequential dependencies in engine degradation.  
@@ -94,7 +94,7 @@ This project focuses on predicting the **Remaining Useful Life (RUL)** of turbof
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - Python 3.x  
 - Pandas  
